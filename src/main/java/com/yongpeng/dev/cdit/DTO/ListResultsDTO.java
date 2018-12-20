@@ -2,11 +2,11 @@ package com.yongpeng.dev.cdit.DTO;
 
 import java.util.List;
 
-public class ListDTO<T> implements ResultsDTO<T>{
+public class ListResultsDTO<T> implements ResultsDTO<T>{
 
   private final List<T> list;
 
-  public ListDTO(List<T> list){
+  public ListResultsDTO(List<T> list){
     this.list = list;
   }
 

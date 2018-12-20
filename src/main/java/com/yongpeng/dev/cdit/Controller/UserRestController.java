@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.yongpeng.dev.cdit.DTO.UserDTO;
 import com.yongpeng.dev.cdit.DTO.ResultsDTO;
-import com.yongpeng.dev.cdit.DTO.ListDTO;
+import com.yongpeng.dev.cdit.DTO.ListResultsDTO;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +20,7 @@ public class UserRestController {
 
     @RequestMapping("/users")
     public ResultsDTO<UserDTO> users() {
-      ResultsDTO<UserDTO> results = new ListDTO<UserDTO>(userService.findByRequiredRange());
+      ResultsDTO<UserDTO> results = new ListResultsDTO<UserDTO>(userService.findByRequiredRange());
       return results;
     }
 
@@ -33,6 +33,4 @@ public class UserRestController {
       }
       return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
     }
-
-
 }
