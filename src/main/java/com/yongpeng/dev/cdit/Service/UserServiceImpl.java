@@ -6,7 +6,7 @@ import com.yongpeng.dev.cdit.DTO.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.yongpeng.dev.cdit.Repository.UserRepository;
 
-public class UserServiceImplement implements UserService{
+public class UserServiceImpl implements UserService{
 
   @Autowired
   private UserRepository userRepository;
