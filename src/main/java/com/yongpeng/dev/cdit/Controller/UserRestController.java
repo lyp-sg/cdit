@@ -44,14 +44,14 @@ public class UserRestController {
     for(UserDTO user: users){
       if(!userService.IsValid(user))
       {
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
       }
     }
 
     for(UserDTO user: users) {
       userService.createUser(user);
     }
-    return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
+    return ResponseEntity.status(HttpStatus.CREATED).build();
   }
   @RequestMapping("/test")
   public void test(){
