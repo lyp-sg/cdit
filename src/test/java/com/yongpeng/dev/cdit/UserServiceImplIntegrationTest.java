@@ -17,7 +17,8 @@ import com.yongpeng.dev.cdit.Service.UserService;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 public class UserServiceImplIntegrationTest{
@@ -48,10 +49,13 @@ public class UserServiceImplIntegrationTest{
     public void findUserByRequiredRange(){
 
       List<UserDTO> userList =userService.findByRequiredRange();
-      List<UserDTO> expectedList = Arrays.asList(
-              new UserDTO("Alan",1000.0),
-              new UserDTO("Ben",4000.0));
+      List<UserDTO> expectedList = new ArrayList<UserDTO>();
+      expectedList.add(new UserDTO("Alan",1000.0));
+      expectedList.add(new UserDTO("Ben",4000.0));
 
-      assertEquals(userList, expectedList);
+      assertThat(userList.get(0).getName(), is(expectedList.get(0).getName()));
+      assertThat(userList.get(0).getSalary(), is(expectedList.get(0).getSalary()));
+      assertThat(userList.get(1).getName(), is(expectedList.get(1).getName()));
+      assertThat(userList.get(1).getSalary(), is(expectedList.get(1).getSalary()));
     }
 }
